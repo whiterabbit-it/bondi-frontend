@@ -1,0 +1,42 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
+<module rename-to='Bondi'>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name="com.google.gwt.inject.Inject" />
+	<inherits name="com.google.gwt.uibinder.UiBinder" />
+    <inherits name="com.google.gwt.uibinder.GinUiBinder"/>
+
+	<!-- GWTP inherits -->
+	<inherits name="com.gwtplatform.dispatch.Dispatch" />
+    <inherits name="com.gwtplatform.mvp.MvpWithEntryPoint" />
+    
+    <!-- External libs -->
+    <inherits name="com.xedge.jquery.GWTJQuery" />
+    <inherits name="com.xedge.jquery.ui.GWTJQueryUI" />
+	<inherits name="com.github.gwtbootstrap.Bootstrap" />
+	<inherits name='com.google.gwt.maps.Maps' />
+<!--     <inherits name="org.hibernate.validator.HibernateValidator" /> -->
+
+	<!-- Specify the paths for translatable code -->
+	<source path="client" />
+	<source path="shared" />
+	<source path='resources' />
+	
+	<replace-with class="com.whiterabbit.bondi.resources.BondiBootstrapConfigurator">
+		<when-type-is class="com.github.gwtbootstrap.client.ui.config.Configurator" />
+	</replace-with>
+	<public path="resources">
+		<exclude name="** /*.java" />
+		<exclude name="** /*.class" />
+	</public>
+  
+<!--     <replace-with class="com.bytelion.opiatalk.client.validation.SimpleValidationFactory"> -->
+<!--       <when-type-is class="javax.validation.ValidatorFactory" /> -->
+<!--     </replace-with> -->
+
+    <set-configuration-property name="gin.ginjector.modules"
+            value="com.whiterabbit.bondi.client.gin.ClientModule"/>
+    <extend-configuration-property name="gin.ginjector.extensions"
+            value="com.whiterabbit.bondi.client.gin.BondiClientGinjector"/>
+</module>
