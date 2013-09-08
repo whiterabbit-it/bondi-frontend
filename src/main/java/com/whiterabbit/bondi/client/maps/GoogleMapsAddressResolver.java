@@ -12,20 +12,20 @@ import com.google.gwt.maps.client.services.GeocoderResult;
 import com.google.gwt.maps.client.services.GeocoderStatus;
 import com.google.inject.Inject;
 import com.whiterabbit.bondi.client.constants.MapsConstants;
-import com.whiterabbit.bondi.shared.dto.Position;
+import com.whiterabbit.bondi.shared.dto.Address;
 
-public class GoogleMapsLocationResolver implements LocationResolver {
+public class GoogleMapsAddressResolver implements AddressResolver {
 
 	private final MapsConstants mapsConstants;
 
 	@Inject
-	public GoogleMapsLocationResolver(final MapsConstants mapsConstants) {
+	public GoogleMapsAddressResolver(final MapsConstants mapsConstants) {
 		this.mapsConstants = mapsConstants;
 	}
 
 	@Override
-	public void resolveLocation(final String address,
-			final PositionResolverCallback callback) {
+	public void resolveAddress(final String address,
+			final AddressResolverCallback callback) {
 
 		GeocoderRequest request = GeocoderRequest.newInstance();
 
@@ -39,14 +39,15 @@ public class GoogleMapsLocationResolver implements LocationResolver {
 			public void onCallback(JsArray<GeocoderResult> results,
 					GeocoderStatus status) {
 				if (status.equals(GeocoderStatus.OK)) {
-					List<Position> locations = new ArrayList<Position>();
+					List<Address> locations = new ArrayList<Address>();
 
 					for (int i = 0; i < results.length(); i++) {
 						GeocoderResult result = results.get(i);
 
-						locations.add(new Position(result.getGeometry()
+						locations.add(new Address(result.getGeometry()
 								.getLocation().getLatitude(), result
-								.getGeometry().getLocation().getLongitude()));
+								.getGeometry().getLocation().getLongitude(),
+								result.getFormatted_Address()));
 					}
 
 					callback.onCallback(locations);

@@ -1,8 +1,10 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:b='urn:import:com.github.gwtbootstrap.client.ui'
-	xmlns:u='urn:import:com.whiterabbit.bondi.client.ui'>
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' 
+	xmlns:b='urn:import:com.github.gwtbootstrap.client.ui'
+	xmlns:u='urn:import:com.whiterabbit.bondi.client.ui'
+	xmlns:w='urn:import:com.whiterabbit.bondi.client.widget'>
 
 	<ui:with type="com.whiterabbit.bondi.client.i18n.MainMessages" field="messages" />
 
@@ -13,7 +15,7 @@
 					<div class="control-group">
 						<g:Label styleName="control-label" text="{messages.yourAddress}" />
 						<div class="controls">
-							<g:TextBox ui:field="address" />
+							<w:AddressSuggestBox ui:field="address" />
 						</div>
 					</div>
 	

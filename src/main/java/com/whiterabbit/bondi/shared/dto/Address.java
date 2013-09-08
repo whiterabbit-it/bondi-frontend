@@ -2,18 +2,21 @@ package com.whiterabbit.bondi.shared.dto;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
 
-public class Position implements IsSerializable {
+public class Address implements IsSerializable {
 
 	private double latitude;
 
 	private double longitude;
 
-	public Position() {
+	private String address;
+
+	public Address() {
 	}
 
-	public Position(double latitude, double longitude) {
+	public Address(double latitude, double longitude, String address) {
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.address = address;
 	}
 
 	public double getLatitude() {
@@ -30,6 +33,14 @@ public class Position implements IsSerializable {
 
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 }
