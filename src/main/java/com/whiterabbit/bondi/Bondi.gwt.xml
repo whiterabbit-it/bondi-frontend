@@ -31,12 +31,10 @@
 		<exclude name="** /*.class" />
 	</public>
   
-<!--     <replace-with class="com.bytelion.opiatalk.client.validation.SimpleValidationFactory"> -->
-<!--       <when-type-is class="javax.validation.ValidatorFactory" /> -->
-<!--     </replace-with> -->
-
     <set-configuration-property name="gin.ginjector.modules"
             value="com.whiterabbit.bondi.client.gin.ClientModule"/>
     <extend-configuration-property name="gin.ginjector.extensions"
             value="com.whiterabbit.bondi.client.gin.BondiClientGinjector"/>
+    <set-configuration-property name="gwtp.bootstrapper"  
+            value="com.whiterabbit.bondi.client.BootstrapperImpl"/>
 </module>
