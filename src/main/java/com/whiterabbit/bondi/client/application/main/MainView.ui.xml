@@ -33,6 +33,10 @@
 							<g:InlineHTML ui:field="distanceDetail" />
 						</div>
 					</div>
+					
+					<div class="control-group">
+					    <b:Button ui:field="list" type="PRIMARY" enabled="false">Listar</b:Button>
+				    </div>
 				</form>
 			</div>
 			<div class="span4 offset1">

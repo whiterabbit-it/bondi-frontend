@@ -27,8 +27,16 @@ public class VertxEventBus extends JavaScriptObject {
 		this.publish(address, message);
 	}-*/;
 	
+	public final native <T extends JavaScriptObject> void publish(String address, JavaScriptObject message, Handler<T> callback) /*-{
+        this.publish(address, message, function(message) {
+            callback.@com.whiterabbit.bondi.client.vertx.Handler::handle(Lcom/google/gwt/core/client/JavaScriptObject;)(message);
+        });
+    }-*/;
+	
 	public final native <T extends JavaScriptObject> void registerHandler(String address, Handler<T> handler) /*-{
-		this.registerHandler(address, handler);
+		this.registerHandler(address, function(message) {
+		    callback.@com.whiterabbit.bondi.client.vertx.Handler::handle(Lcom/google/gwt/core/client/JavaScriptObject;)(message);
+		});
 	}-*/;
 
 }
