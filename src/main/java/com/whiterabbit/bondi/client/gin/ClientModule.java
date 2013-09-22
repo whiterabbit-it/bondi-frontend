@@ -7,6 +7,7 @@ import com.gwtplatform.mvp.client.annotations.DefaultPlace;
 import com.gwtplatform.mvp.client.gin.DefaultModule;
 import com.whiterabbit.bondi.client.constants.ApplicationConstants;
 import com.whiterabbit.bondi.client.constants.MapsConstants;
+import com.whiterabbit.bondi.client.constants.VertxConstants;
 import com.whiterabbit.bondi.client.maps.GoogleMapsAddressResolver;
 import com.whiterabbit.bondi.client.maps.AddressResolver;
 import com.whiterabbit.bondi.client.place.ClientPlaceManager;
@@ -30,6 +31,7 @@ public class ClientModule extends AbstractGinModule {
 	private void bindApplicationConstants() {
 		bind(MapsConstants.class).in(Singleton.class);
 		bind(ApplicationConstants.class).in(Singleton.class);
+		bind(VertxConstants.class).in(Singleton.class);
 		bindConstant().annotatedWith(DefaultPlace.class).to(NameTokens.main);
 	}
 
