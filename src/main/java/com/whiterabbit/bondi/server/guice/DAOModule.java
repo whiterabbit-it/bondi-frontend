@@ -9,7 +9,7 @@ public class DAOModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
-		bind(BusDAO.class).to(BusDAOImpl.class).in(Singleton.class);
+		//bind(BusDAO.class).to(BusDAOImpl.class).in(Singleton.class);
 	}
 
 }

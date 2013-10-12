@@ -10,7 +10,7 @@
   </welcome-file-list>
 
   <listener>
-    <listener-class>com.whiterabbit.server.guice.GuiceServletConfig</listener-class>
+    <listener-class>com.whiterabbit.bondi.server.guice.GuiceServletConfig</listener-class>
   </listener>
 
   <filter>
